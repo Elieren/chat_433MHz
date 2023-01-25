@@ -32,12 +32,13 @@ logging.info("Listening for codes on GPIO " + str(args.gpio))
 text = ''
 while True:
     if rfdevice.rx_code_timestamp != timestamp:
-        if text == '':
-            print('\nIncoming message...')
-        timestamp = rfdevice.rx_code_timestamp
-        text += (chr(int(rfdevice.rx_code)))
-        if text[-3:] == 'end':
-            print(text[:-3])
-            text = ''
+        if int(rfdevice.rx_code) <= 1114111:
+            if text == '':
+                print('\nIncoming message...')
+            timestamp = rfdevice.rx_code_timestamp
+            text += (chr(int(rfdevice.rx_code)))
+            if text[-3:] == 'end':
+                print(text[:-3])
+                text = ''
     time.sleep(0.01)
 rfdevice.cleanup()
