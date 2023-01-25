@@ -41,7 +41,7 @@ while True:
         timestamp = rfdevice.rx_code_timestamp
         text += (chr(int(rfdevice.rx_code)))
         if text[-3:] == 'end':
-            print(text)
+            print(text[:-3])
             text = ''
     time.sleep(0.01)
 rfdevice.cleanup()
