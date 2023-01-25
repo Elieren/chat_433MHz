@@ -15,10 +15,6 @@ def exithandler(signal, frame):
     rfdevice.cleanup()
     sys.exit(0)
 
-def decode_binary_string(s):
-    return ''.join(chr(int(s[i*8:i*8+8], 2)) for i in range(len(s)//8))
-
-
 logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S',
                     format='%(asctime)-15s - [%(levelname)s] %(module)s: %(message)s', )
 
