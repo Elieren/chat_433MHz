@@ -20,3 +20,5 @@ sudo python3 send.py
 ```
 sudo python3 revers.py
 ```
+
+(there may be a loss of letters.)
